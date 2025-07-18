@@ -25,7 +25,6 @@ pipeline {
             steps {
                 sh '''
                     ls -la
-                    node --version
                     test -f build/index.html
                    '''
                 
