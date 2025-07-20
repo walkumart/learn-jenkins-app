@@ -33,7 +33,7 @@ pipeline {
             steps {
                 sh '''
                     npm cache clean -f
-                    npm install -g serve
+                    npm install serve
                     node_module/.bin/serve -s build &
                     sleep 10
                     npx playwright test
