@@ -12,6 +12,7 @@ pipeline {
             steps {
                 sh '''
                     ls -la
+                    npm cache clean -f
                     node --version
                     npm ci
                     npm run build
