@@ -31,6 +31,7 @@ pipeline {
 
             steps {
                 sh '''
+                    npm cache clean -f
                     npm install -g serve
                     node_module/.bin/serve -s build &
                     sleep 10
