@@ -12,7 +12,6 @@ pipeline {
             steps {
                 sh '''
                     ls -la
-                    npm cache clean -f
                     node --version
                     npm ci
                     npm run build
@@ -32,10 +31,10 @@ pipeline {
 
             steps {
                 sh '''
-                    npm cache clean -f
+                    
                     npm install serve
                     node_module/.bin/serve -s build &
-                    sleep 10
+                    sleep 40
                     npx playwright test
                    '''
                 
