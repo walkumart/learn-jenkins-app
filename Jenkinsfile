@@ -25,7 +25,7 @@ pipeline {
             agent {
                 docker {
                     image 'mcr.microsoft.com/playwright:v1.39.0-jammy'
-                    reuseNode true'
+                    reuseNode true
                 }
             }
 
@@ -33,6 +33,7 @@ pipeline {
                 sh '''
                     npm install -g serve
                     node_module/.bin/serve -s build &
+                    sleep 10
                     npx playwright test
                    '''
                 
