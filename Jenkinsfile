@@ -24,6 +24,12 @@ pipeline {
     
     }
 
+    stage('Test') {
+        steps{
+            sh 'echo test'
+        }
+    }
+
 
   /*  post {
         always {
