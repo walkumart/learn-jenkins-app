@@ -9,6 +9,7 @@ pipeline {
                     image 'node:18-alpine'
                     reuseNode true
                 }
+            }
 
             steps {
                 sh '''
@@ -20,7 +21,7 @@ pipeline {
                    '''  
             }    
             }
-        }
+         
       
            
         stage('E2E') {
@@ -43,7 +44,7 @@ pipeline {
             }
         }
 
-            
+    }     
         
         
 
