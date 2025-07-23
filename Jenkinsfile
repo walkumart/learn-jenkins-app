@@ -2,27 +2,28 @@ pipeline {
     agent any
 
     stages {
-        stage ('Run Tests') {
-            parallel {
-                    stage('Build') {
-                agent {
-                    docker {
-                        image 'node:18-alpine'
-                        reuseNode true
-                    }
+        
+        stage ('Build') {
+            agent {
+                docker {
+                    image 'node:18-alpine'
+                    reuseNode true
                 }
-                steps {
-                    sh '''
-                        ls -la
-                        node --version
-                        npm ci
-                        npm run build
-                        ls -la
-                    '''
-                    
-                }
+
+            steps {
+                sh '''
+                    ls -la
+                    node --version
+                    npm ci
+                    npm run build
+                    ls -la
+                   '''  
+            }    
             }
-             stage('E2E') {
+        }
+      
+           
+        stage('E2E') {
             agent {
                 docker {
                     image 'mcr.microsoft.com/playwright:v1.39.0-jammy'
@@ -42,8 +43,8 @@ pipeline {
             }
         }
 
-            }
-        }
+            
+        
         
 
        
