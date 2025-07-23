@@ -24,9 +24,9 @@ pipeline {
     
     }
 
-        stage('Test') {
+        stage ('Test') {
             steps{
-                sh 'echo test'
+                sh 'test -f build/index.html'
             }
         }
 
