@@ -24,11 +24,11 @@ pipeline {
     
     }
 
-    stage('Test') {
-        steps{
-            sh 'echo test'
+        stage('Test') {
+            steps{
+                sh 'echo test'
+            }
         }
-    }
 
 
   /*  post {
